@@ -1,10 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_instagram_app/utils/colors.dart';
 import 'package:flutter_instagram_app/utils/mobile_screen_layout.dart';
 import 'package:flutter_instagram_app/utils/responsive_layout_screen.dart';
 import 'package:flutter_instagram_app/utils/web_screen_layout.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
