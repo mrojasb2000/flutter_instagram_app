@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_instagram_app/utils/colors.dart';
-import 'package:flutter_instagram_app/widgets/text_field_input.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+import '../utils/colors.dart';
+import '../widgets/text_field_input.dart';
+
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _bioController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
 
   @override
   void dispose() {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _bioController.dispose();
+    _usernameController.dispose();
   }
 
   @override
@@ -41,6 +46,15 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 64,
               ),
+              // text field input for username
+              TextFieldInput(
+                hintText: 'Enter your username',
+                textInputType: TextInputType.text,
+                textEditingController: _usernameController,
+              ),
+              const SizedBox(
+                height: 24,
+              ),
               // text field input for email
               TextFieldInput(
                 hintText: 'Enter your email',
@@ -55,6 +69,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 hintText: 'Enter your password',
                 textInputType: TextInputType.text,
                 textEditingController: _passwordController,
+                isPass: true,
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              // text field input for password
+              TextFieldInput(
+                hintText: 'Enter your bio',
+                textInputType: TextInputType.text,
+                textEditingController: _bioController,
                 isPass: true,
               ),
               const SizedBox(
